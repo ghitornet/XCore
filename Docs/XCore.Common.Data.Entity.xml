@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XCore.Common.Data.Entity</name>
+    </assembly>
+    <members>
+        <member name="T:XCore.Common.Data.Entity.Attributes.ContextAttribute">
+            <summary>
+                The context attribute.
+            </summary>
+            <remarks>
+                Initializes a new instance of the <see cref="T:XCore.Common.Data.Entity.Attributes.ContextAttribute" /> class.
+            </remarks>
+            <param name="contextName">
+                The context name.
+            </param>
+        </member>
+        <member name="M:XCore.Common.Data.Entity.Attributes.ContextAttribute.#ctor(System.String)">
+            <summary>
+                The context attribute.
+            </summary>
+            <remarks>
+                Initializes a new instance of the <see cref="T:XCore.Common.Data.Entity.Attributes.ContextAttribute" /> class.
+            </remarks>
+            <param name="contextName">
+                The context name.
+            </param>
+        </member>
+        <member name="P:XCore.Common.Data.Entity.Attributes.ContextAttribute.ContextName">
+            <summary>
+                Gets the context name.
+            </summary>
+            <remarks>
+                The context name is used to identify the context of the entity.
+            </remarks>
+        </member>
+        <member name="T:XCore.Common.Data.Entity.IEntity">
+            <summary>
+                Represents a database entity.
+            </summary>
+            <remarks>
+                This interface is used to mark a class as a database entity.
+            </remarks>
+            <example>
+                <code>
+                    [Key]
+                    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+                    [Column("Id", Order = 0)]
+                    public class Person : IEntity
+                    {
+                        public int Id { get; set; }
+            
+                        public string Name { get; set; }
+                    }
+                </code>
+            </example>
+        </member>
+        <member name="T:XCore.Common.Data.Entity.IEntityCreationTracker">
+             <summary>
+             The entity creation tracker.
+             </summary>
+             <remarks>
+             This interface is used to mark a class as a database entity with creation tracking.
+             </remarks>
+             <example>
+                 <code>
+                     [Index(nameof(RowGuid), IsUnique = true)]
+                     public class Person : IEntityCreationTracker
+                     {
+                         [Key]
+                         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+                         [Column("Id", Order = 0)]
+                         public int Id { get; set; }
+             
+                         public Guid RowGuid { get; set; }
+            
+                         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+            
+                         public string CreatedBy { get; set; }
+                     }
+                 </code>
+             </example>
+        </member>
+        <member name="P:XCore.Common.Data.Entity.IEntityCreationTracker.CreatedAt">
+            <summary>
+                Gets or sets the created at.
+            </summary>
+            <remarks>
+                The created at is the date and time when the object was created.
+            </remarks>
+        </member>
+        <member name="P:XCore.Common.Data.Entity.IEntityCreationTracker.CreatedBy">
+            <summary>
+                Gets or sets the created by.
+            </summary>
+            <remarks>
+                The created by is the user who created the object.
+            </remarks>
+        </member>
+        <member name="T:XCore.Common.Data.Entity.IEntityDeletionTracker">
+            <summary>
+                The entity deletion tracker.
+            </summary>
+        </member>
+        <member name="P:XCore.Common.Data.Entity.IEntityDeletionTracker.DeletedAt">
+            <summary>
+                Gets or sets the deleted at.
+            </summary>
+            <remarks>
+                The date and time the entity was deleted.
+            </remarks>
+        </member>
+        <member name="P:XCore.Common.Data.Entity.IEntityDeletionTracker.DeletedBy">
+            <summary>
+                Gets or sets the deleted by.
+            </summary>
+            <remarks>
+                The user who deleted the entity.
+            </remarks>
+        </member>
+        <member name="T:XCore.Common.Data.Entity.IEntityExportTracking">
+            <summary>
+                The entity export tracking.
+            </summary>
+            <remarks>
+                This interface is used to mark an entity with export tracking.
+            </remarks>
+        </member>
+        <member name="P:XCore.Common.Data.Entity.IEntityExportTracking.IsReadyToExport">
+            <summary>
+                Gets or sets a value indicating whether ready to is export.
+            </summary>
+            <remarks>
+                A value indicating whether the entity is ready to be exported.
+            </remarks>
+        </member>
+        <member name="P:XCore.Common.Data.Entity.IEntityExportTracking.LastExportedAt">
+            <summary>
+                Gets or sets the last exported at.
+            </summary>
+            <remarks>
+                The date and time the entity was last exported.
+            </remarks>
+        </member>
+        <member name="P:XCore.Common.Data.Entity.IEntityExportTracking.LastExportedBy">
+            <summary>
+                Gets or sets the last exported by.
+            </summary>
+            <remarks>
+                The user who last exported the entity.
+            </remarks>
+        </member>
+        <member name="T:XCore.Common.Data.Entity.IEntityId">
+            <summary>
+            The entity id.
+            </summary>
+            <remarks>
+            This interface is used to mark a class as a database entity with an id.
+            </remarks>
+            <example>
+                <code>
+                    [Index(nameof(RowGuid), IsUnique = true)]
+                    public class Person : IEntityId
+                    {
+                        [Key]
+                        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+                        [Column("Id", Order = 0)]
+                        public int Id { get; set; }
+            
+                        public Guid RowGuid { get; set; }
+            
+                        public string Name { get; set; }
+                    }
+                </code>
+            </example>
+        </member>
+        <member name="P:XCore.Common.Data.Entity.IEntityId.Id">
+            <summary>
+                Gets or sets the id.
+            </summary>
+            <remarks>
+                The id is the primary key of the entity.
+                It is automatically assigned by the database when the object is created.
+            </remarks>
+        </member>
+        <member name="P:XCore.Common.Data.Entity.IEntityId.RowGuid">
+            <summary>
+                Gets or sets the row guid.
+            </summary>
+            <remarks>
+                The row guid is used to uniquely identify a row in a table.
+                This field is not automatically assigned by the database but can be assigned directly when the object is created.
+                It is useful in case of searching for single data not to have a reference within the url.
+            </remarks>
+        </member>
+        <member name="T:XCore.Common.Data.Entity.IEntityImportTracking">
+            <summary>
+                The entity import tracking.
+            </summary>
+            <remarks>
+                This interface is used to mark an entity with import tracking.
+            </remarks>
+        </member>
+        <member name="P:XCore.Common.Data.Entity.IEntityImportTracking.LastImportedAt">
+            <summary>
+                Gets or sets the last imported at.
+            </summary>
+            <remarks>
+                The last imported at is the date and time the entity was last imported.
+            </remarks>
+        </member>
+        <member name="P:XCore.Common.Data.Entity.IEntityImportTracking.LastImportedBy">
+            <summary>
+                Gets or sets the last imported by.
+            </summary>
+            <remarks>
+                The last imported by is the user who last imported the entity.
+            </remarks>
+        </member>
+        <member name="T:XCore.Common.Data.Entity.IEntityModificationTracker">
+            <summary>
+                The entity modification tracker.
+            </summary>
+            <remarks>
+                This interface is used to mark a class as a database entity with modification tracking.
+            </remarks>
+        </member>
+        <member name="P:XCore.Common.Data.Entity.IEntityModificationTracker.LastModifiedAt">
+            <summary>
+                Gets or sets the last modified at.
+            </summary>
+            <remarks>
+                The last modified at is the date and time when the object was last modified.
+            </remarks>
+        </member>
+        <member name="P:XCore.Common.Data.Entity.IEntityModificationTracker.LastModifiedBy">
+            <summary>
+                Gets or sets the last modified by.
+            </summary>
+            <remarks>
+                The last modified by is the user who last modified the object.
+            </remarks>
+        </member>
+    </members>
+</doc>

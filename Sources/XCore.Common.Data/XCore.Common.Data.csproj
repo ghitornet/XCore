@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>XCore.Common.Data</PackageId>
+    <Title>Interface-Driven Entity Management for Databases</Title>
+    <Description>
+      
+    </Description>
+    <DocumentationFile>../../Docs/XCore.Common.Data.xml</DocumentationFile>
+    <Version>1.0.0</Version>
+    <FileVersion>1.0.0</FileVersion>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\XCore.Common.Data.Entity\XCore.Common.Data.Entity.csproj" />
+  </ItemGroup>
+
+</Project>

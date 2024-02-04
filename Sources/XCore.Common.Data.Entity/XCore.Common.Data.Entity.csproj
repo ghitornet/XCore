@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>XCore.Common.Data.Entity</PackageId>
+    <Title>Interface-Driven Entity Management for Databases</Title>
+    <Description>
+      The NuGet package “XCore.Common.Data.Entity” is a comprehensive set of interfaces designed to manage entities in a database using code. This package provides a clear and consistent abstraction for data manipulation, making database operations more efficient and manageable.
+
+      Here are some highlights of this package:
+
+      Comprehensive Interfaces: The package provides all the necessary interfaces for managing entities in a database. This includes operations such as inserting, updating, deleting, and searching for entities.
+
+      Data Abstraction: The interfaces provide a level of abstraction between the application code and the database. This makes the code easier to write, test, and maintain.
+
+      Compatibility: The package is designed to be compatible with a variety of databases. This means it can be used in a wide range of applications, regardless of the database used.
+
+      Efficiency: By using the interfaces provided by this package, developers can write more efficient and performant code. This can lead to an improvement in application performance.
+
+      Ease of Use: The package has been designed with usability in mind. The interfaces are intuitive and easy to use, making application development simpler and faster.
+
+      In summary, “XCore.Common.Data.Entity” is a powerful tool for any developer working with databases. It provides a robust and flexible set of interfaces that can make database entity management a breeze
+    </Description>
+    <DocumentationFile>../../Docs/XCore.Common.Data.Entity.xml</DocumentationFile>
+    <Version>1.0.0</Version>
+    <FileVersion>1.0.0</FileVersion>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+  </ItemGroup>
+
+</Project>
