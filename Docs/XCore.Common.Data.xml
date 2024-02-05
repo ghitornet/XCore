@@ -1,0 +1,279 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XCore.Common.Data</name>
+    </assembly>
+    <members>
+        <member name="T:XCore.Common.Data.BaseDbContext">
+            <summary>
+                The base db context.
+            </summary>
+            <remarks>
+                This class is used to provide a base db context for all the other db contexts.
+            </remarks>
+            <remarks>
+                Initializes a new instance of the <see cref="T:XCore.Common.Data.BaseDbContext" /> class.
+            </remarks>
+            <param name="contextOptions">The context options.</param>
+            <param name="logger">The system logger.</param>
+            <summary>
+                The base db context.
+            </summary>
+        </member>
+        <member name="M:XCore.Common.Data.BaseDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions,Microsoft.Extensions.Logging.ILogger{XCore.Common.Data.BaseDbContext})">
+            <summary>
+                The base db context.
+            </summary>
+            <remarks>
+                This class is used to provide a base db context for all the other db contexts.
+            </remarks>
+            <remarks>
+                Initializes a new instance of the <see cref="T:XCore.Common.Data.BaseDbContext" /> class.
+            </remarks>
+            <param name="contextOptions">The context options.</param>
+            <param name="logger">The system logger.</param>
+        </member>
+        <member name="M:XCore.Common.Data.BaseDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+                Ons the model creating.
+            </summary>
+            <remarks>
+                This method is used to configure all entities that derive from the <see cref="T:XCore.Common.Data.Entity.IEntity" /> interface and that
+                contain the <see cref="T:XCore.Common.Data.Entity.Attributes.ContextAttribute" /> defined for the specific <see cref="T:Microsoft.EntityFrameworkCore.DbContext" />.
+                The entity configuration is loaded by searching for all classes that contain
+                <see cref="T:Microsoft.EntityFrameworkCore.IEntityTypeConfiguration`1" /> interfaces.
+                The method also sets the query filter for all entities that derive from the <see cref="T:XCore.Common.Data.Entity.IEntityDeletionTracker" />
+                interface.
+            </remarks>
+            <param name="modelBuilder">
+                The model builder.
+            </param>
+        </member>
+        <member name="M:XCore.Common.Data.BaseDbContext.GetEntityToExport``1">
+            <summary>
+                Gets the entity to export.
+            </summary>
+            <remarks>
+                This method is used to get the entities that are ready to be exported.
+            </remarks>
+            <returns>An IQueryable.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.BaseDbContext.OnBeforeSaveChanges">
+            <summary>
+                Ons the before save changes.
+            </summary>
+        </member>
+        <member name="M:XCore.Common.Data.BaseDbContext.OnAfterSaveChanges(System.Collections.Generic.IEnumerable{System.Object})">
+            <summary>
+                Ons the after save changes.
+            </summary>
+            <param name="entities">The entities.</param>
+        </member>
+        <member name="M:XCore.Common.Data.BaseDbContext.BeforeSaveChanges(System.Boolean)">
+            <summary>
+                Ons the before save changes.
+            </summary>
+            <returns>A list of DataHistoryEntries.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.BaseDbContext.BeforeSaveImportChanges(System.Boolean)">
+            <summary>
+                Before the save import changes.
+            </summary>
+            <returns>
+                A list of EntityEntries.
+            </returns>
+        </member>
+        <member name="M:XCore.Common.Data.BaseDbContext.BeforeSaveExportChanges(System.Collections.Generic.IEnumerable{System.Object})">
+            <summary>
+                Before the save export changes.
+            </summary>
+            <returns>
+                A list of EntityEntries.
+            </returns>
+        </member>
+        <member name="M:XCore.Common.Data.BaseDbContext.SaveAllChangesAsync(System.Boolean,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+                Saves the changes async.
+            </summary>
+            <remarks>
+                This method is used to save the changes to the database asynchronously.
+                if the entity is marked as IEntityExportTracking and setEntityReadyToExport is true, it will set the entity as
+                ready to export.
+            </remarks>
+            <param name="acceptAllChangesOnSuccess">
+                If true, accept all changes on success.
+            </param>
+            <param name="setEntityReadyToExport">
+                If true, set entity ready to export.
+            </param>
+            <param name="cancellationToken">
+                The cancellation token.
+            </param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.BaseDbContext.SaveImportChangesAsync(System.Boolean,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+                Saves the import changes async.
+            </summary>
+            <remarks>
+                This method is used to save the import changes to the database asynchronously.
+                if ignoreExportTracking is true, it will ignore all entities that are marked as
+                <see cref="P:XCore.Common.Data.Entity.IEntityExportTracking.IsReadyToExport" /> = true.
+            </remarks>
+            <param name="ignoreExportTracking">
+                If true, ignore export tracking.
+            </param>
+            <param name="acceptAllChangesOnSuccess">
+                If true, accept all changes on success.
+            </param>
+            <param name="cancellationToken">
+                The cancellation token.
+            </param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.BaseDbContext.SaveExportChangesAsync(System.Collections.Generic.List{System.Object},System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+                Saves the export changes async.
+            </summary>
+            <remarks>
+                This method only saves the exported state for the entities that are passed.
+                If there are other changes in the data context, they are erased before the data is saved.
+            </remarks>
+            <param name="entitiesExported">
+                The entities exported.
+            </param>
+            <param name="acceptAllChangesOnSuccess">
+                If true, accept all changes on success.
+            </param>
+            <param name="cancellationToken">
+                The cancellation token.
+            </param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.BaseDbContext.SaveAllChanges(System.Boolean,System.Boolean)">
+            <summary>
+                Saves the changes.
+            </summary>
+            <remarks>
+                This method is used to save the changes to the database.
+                if the entity is marked as IEntityExportTracking and setEntityReadyToExport is true, it will set the entity as
+                ready to export.
+            </remarks>
+            <param name="acceptAllChangesOnSuccess">
+                If true, accept all changes on success.
+            </param>
+            <param name="setEntityReadyToExport">
+                If true, set entity ready to export.
+            </param>
+            <returns>An int.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.BaseDbContext.SaveImportChanges(System.Boolean,System.Boolean)">
+            <summary>
+                Saves the import changes.
+            </summary>
+            <remarks>
+                This method is used to save the import changes to the database.
+                if ignoreExportTracking is true, it will ignore all entities that are marked as
+                <see cref="P:XCore.Common.Data.Entity.IEntityExportTracking.IsReadyToExport" /> = true.
+            </remarks>
+            <param name="ignoreExportTracking">
+                If true, ignore export tracking.
+            </param>
+            <param name="acceptAllChangesOnSuccess">
+                If true, accept all changes on success.
+            </param>
+            <returns>An int.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.BaseDbContext.SaveExportChanges(System.Collections.Generic.List{System.Object},System.Boolean)">
+            <summary>
+                Saves the export changes.
+            </summary>
+            <param name="entitiesExported">
+                The entities exported.
+            </param>
+            <param name="acceptAllChangesOnSuccess">
+                If true, accept all changes on success.
+            </param>
+            <returns>An int.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.BaseDbContext.SaveAllChanges(System.Boolean)">
+            <summary>
+                Saves the changes.
+            </summary>
+            <remarks>
+                This method is used to save the changes to the database.
+                if the entity is marked as IEntityExportTracking and setEntityReadyToExport is true, it will set the entity as
+                ready to export.
+            </remarks>
+            <param name="setEntityReadyToExport">
+                If true, set entity ready to export.
+            </param>
+            <returns>An int.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.BaseDbContext.SaveImportChanges(System.Boolean)">
+            <summary>
+                Saves the import changes.
+            </summary>
+            <remarks>
+                This method is used to save the import changes to the database.
+                if ignoreExportTracking is true, it will ignore all entities that are marked as
+                <see cref="P:XCore.Common.Data.Entity.IEntityExportTracking.IsReadyToExport" /> = true.
+            </remarks>
+            <param name="ignoreExportTracking">
+                If true, ignore export tracking.
+            </param>
+            <returns>An int.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.BaseDbContext.SaveExportChanges(System.Collections.Generic.List{System.Object})">
+            <summary>
+                Saves the export changes.
+            </summary>
+            <param name="entitiesExported">
+                The entities exported.
+            </param>
+            <returns>An int.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.BaseDbContext.SaveAllChangesAsync(System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+                Saves the all changes async.
+            </summary>
+            <remarks>
+                This method is used to save the changes to the database asynchronously.
+                if the entity is marked as IEntityExportTracking and setEntityReadyToExport is true, it will set the entity as
+                ready to export.
+            </remarks>
+            <param name="setEntityReadyToExport">If true, set entity ready to export.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.BaseDbContext.SaveImportChangesAsync(System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+                Saves the import changes async.
+            </summary>
+            <remarks>
+                This method is used to save the import changes to the database asynchronously.
+                if ignoreExportTracking is true, it will ignore all entities that are marked as
+                <see cref="P:XCore.Common.Data.Entity.IEntityExportTracking.IsReadyToExport" /> = true.
+            </remarks>
+            <param name="ignoreExportTracking">
+                If true, ignore export tracking.
+            </param>
+            <param name="cancellationToken">
+                The cancellation token.
+            </param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.BaseDbContext.SaveExportChangesAsync(System.Collections.Generic.List{System.Object},System.Threading.CancellationToken)">
+            <summary>
+                Saves the export changes async.
+            </summary>
+            <param name="entitiesExported">
+                The entities exported.
+            </param>
+            <param name="cancellationToken">
+                The cancellation token.
+            </param>
+            <returns>A Task.</returns>
+        </member>
+    </members>
+</doc>

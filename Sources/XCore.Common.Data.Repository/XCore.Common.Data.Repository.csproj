@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>XCore.Common.Data.Repository</PackageId>
+    <Title>XCore Common Data Repository: Simplify Data Access with Entity Framework Core</Title>
+    <Description>
+      The XCore.Common.Data.Repository NuGet package is a useful tool for managing the repository pattern in Entity Framework Core. This package provides features to simplify data access and management of Create, Read, Update, Delete (CRUD) operations within a .NET application that uses Entity Framework Core.
+    </Description>
+    <DocumentationFile>../../Docs/XCore.Common.Data.Repository.xml</DocumentationFile>
+    <Version>1.0.0</Version>
+    <FileVersion>1.0.0</FileVersion>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\XCore.Common.Data.Entity\XCore.Common.Data.Entity.csproj" />
+    <ProjectReference Include="..\XCore.Common.Data\XCore.Common.Data.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,7 +1,9 @@
 global using FluentAssertions;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.Extensions.Logging;
 global using XCore.Common.Data.Entity.Tests;
-global using XCore.Common.Data.Tests.Data;
+global using XCore.Common.Data.Repository.Tests.Data;
+global using XCore.Common.Data.Repository.Tests.Data.Repositories;
 global using Xunit;

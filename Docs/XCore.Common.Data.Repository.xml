@@ -1,0 +1,452 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XCore.Common.Data.Repository</name>
+    </assembly>
+    <members>
+        <member name="T:XCore.Common.Data.Repository.IRepository`1">
+            <summary>
+                The repository.
+            </summary>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepository`1.Get">
+            <summary>
+                Gets the query for all entities.
+            </summary>
+            <remarks>
+                Gets the query for all entities.
+            </remarks>
+            <returns>A list of TEntities.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepository`1.Get(System.Int32)">
+            <summary>
+                Gets entity.
+            </summary>
+            <remarks>
+                Gets the specified entity.
+            </remarks>
+            <param name="id">The id.</param>
+            <returns>A TEntity? .</returns>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepository`1.Add(`0,System.Boolean,System.Nullable{System.Boolean})">
+            <summary>
+                Adds the entity.
+            </summary>
+            <remarks>
+                Adds the new entity.
+            </remarks>
+            <param name="entity">The entity.</param>
+            <param name="saveChanges">if set to <c>true</c> [save changes].</param>
+            <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepository`1.AddRange(System.Collections.Generic.IEnumerable{`0},System.Boolean,System.Nullable{System.Boolean})">
+            <summary>
+                Adds the entities range.
+            </summary>
+            <remarks>
+                Adds the new entities range.
+            </remarks>
+            <param name="entities">The entities.</param>
+            <param name="saveChanges">if set to <c>true</c> [save changes].</param>
+            <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepository`1.Update(`0,System.Boolean,System.Nullable{System.Boolean})">
+            <summary>
+                Updates the entity.
+            </summary>
+            <remarks>
+                Updates the entity.
+            </remarks>
+            <param name="entity">The entity.</param>
+            <param name="saveChanges">if set to <c>true</c> [save changes].</param>
+            <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepository`1.UpdateRange(System.Collections.Generic.IEnumerable{`0},System.Boolean,System.Nullable{System.Boolean})">
+            <summary>
+                Updates the entities range.
+            </summary>
+            <remarks>
+                Updates the entities range.
+            </remarks>
+            <param name="entities">The entities.</param>
+            <param name="saveChanges">if set to <c>true</c> [save changes].</param>
+            <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepository`1.Delete(System.Int32,System.Boolean,System.Nullable{System.Boolean})">
+            <summary>
+                Deletes the entity.
+            </summary>
+            <remarks>
+                Deletes the entity.
+            </remarks>
+            <param name="id">The id.</param>
+            <param name="saveChanges">if set to <c>true</c> [save changes].</param>
+            <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepository`1.DeleteRange(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean,System.Nullable{System.Boolean})">
+            <summary>
+                Deletes the entities range.
+            </summary>
+            <remarks>
+                Deletes the entities range.
+            </remarks>
+            <param name="ids">The ids.</param>
+            <param name="saveChanges">if set to <c>true</c> [save changes].</param>
+            <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepository`1.BeginTransaction">
+            <summary>
+                Begins the transaction.
+            </summary>
+            <remarks>
+                Begins the transaction.
+            </remarks>
+            <returns>An IDbContextTransaction.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepository`1.CommitTransaction(Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction)">
+            <summary>
+                Commits the transaction.
+            </summary>
+            <remarks>
+                Commits the transaction.
+            </remarks>
+            <param name="transaction">
+                The transaction.
+            </param>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepository`1.RollbackTransaction(Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction)">
+            <summary>
+                Rollbacks the transaction.
+            </summary>
+            <remarks>
+                Rollbacks the transaction.
+            </remarks>
+            <param name="transaction">
+                The transaction.
+            </param>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepository`1.SaveChanges(System.Nullable{System.Boolean})">
+            <summary>
+                Saves the changes.
+            </summary>
+            <remarks>
+                Saves the changes.
+            </remarks>
+            <param name="setEntityReadyToExport">
+                if set to <c>true</c> [set entity ready to export].
+            </param>
+            <returns>
+                The number of state entries written to the database.
+            </returns>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepository`1.SaveImportChanges(System.Nullable{System.Boolean})">
+            <summary>
+                Saves the import changes.
+            </summary>
+            <remarks>
+                Saves the import changes.
+            </remarks>
+            <param name="ignoreExportTracking">
+                If true, ignore export tracking.
+            </param>
+            <returns>
+                The number of state entries written to the database.
+            </returns>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepository`1.ResetExportEntity(System.Collections.Generic.List{System.Object})">
+            <summary>
+                Resets the export entity.
+            </summary>
+            <remarks>
+                Resets the export entity.
+            </remarks>
+            <param name="entitiesExported">
+                The entities exported.
+            </param>
+            <returns>
+                The number of state entries written to the database.
+            </returns>
+        </member>
+        <member name="T:XCore.Common.Data.Repository.IRepositoryAsync`1">
+            <summary>
+                The repository async.
+            </summary>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepositoryAsync`1.GetAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+                Gets entity async.
+            </summary>
+            <param name="id">The id.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A TEntity? .</returns>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepositoryAsync`1.AddAsync(`0,System.Boolean,System.Nullable{System.Boolean},System.Threading.CancellationToken)">
+            <summary>
+                Adds the entity async.
+            </summary>
+            <param name="entity">The entity.</param>
+            <param name="saveChanges">if set to <c>true</c> [save changes].</param>
+            <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>
+                The entity added.
+            </returns>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepositoryAsync`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0},System.Boolean,System.Nullable{System.Boolean},System.Threading.CancellationToken)">
+            <summary>
+                Adds the entities range async.
+            </summary>
+            <param name="entities">
+                The entities.
+            </param>
+            <param name="saveChanges">if set to <c>true</c> [save changes].</param>
+            <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepositoryAsync`1.UpdateAsync(`0,System.Boolean,System.Nullable{System.Boolean},System.Threading.CancellationToken)">
+            <summary>
+                Updates the entity async.
+            </summary>
+            <param name="entity">The entity.</param>
+            <param name="saveChanges">if set to <c>true</c> [save changes].</param>
+            <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>
+                The entity added.
+            </returns>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepositoryAsync`1.UpdateRangeAsync(System.Collections.Generic.IEnumerable{`0},System.Boolean,System.Nullable{System.Boolean},System.Threading.CancellationToken)">
+            <summary>
+                Updates the entities range async.
+            </summary>
+            <param name="entities">The entities.</param>
+            <param name="saveChanges">if set to <c>true</c> [save changes].</param>
+            <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepositoryAsync`1.DeleteAsync(System.Int32,System.Boolean,System.Nullable{System.Boolean},System.Threading.CancellationToken)">
+            <summary>
+                Deletes the entity async.
+            </summary>
+            <param name="id">The id.</param>
+            <param name="saveChanges">if set to <c>true</c> [save changes].</param>
+            <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepositoryAsync`1.DeleteRangeAsync(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean,System.Nullable{System.Boolean},System.Threading.CancellationToken)">
+            <summary>
+                Deletes the entities range async.
+            </summary>
+            <param name="ids">The ids.</param>
+            <param name="saveChanges">if set to <c>true</c> [save changes].</param>
+            <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepositoryAsync`1.BeginTransactionAsync">
+            <summary>
+                Begins the transaction async.
+            </summary>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepositoryAsync`1.CommitTransactionAsync(Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction)">
+            <summary>
+                Commits the transaction async.
+            </summary>
+            <param name="transaction">The transaction.</param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepositoryAsync`1.RollbackTransactionAsync(Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction)">
+            <summary>
+                Rollbacks the transaction async.
+            </summary>
+            <param name="transaction">The transaction.</param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepositoryAsync`1.SaveChangesAsync(System.Nullable{System.Boolean},System.Threading.CancellationToken)">
+            <summary>
+                Saves the changes async.
+            </summary>
+            <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepositoryAsync`1.SaveImportChangesAsync(System.Nullable{System.Boolean},System.Threading.CancellationToken)">
+            <summary>
+                Saves the import changes Async.
+            </summary>
+            <remarks>
+                Saves the import changes.
+            </remarks>
+            <param name="ignoreExportTracking">
+                If true, ignore export tracking.
+            </param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>
+                The number of state entries written to the database.
+            </returns>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.IRepositoryAsync`1.ResetExportEntityAsync(System.Collections.Generic.List{System.Object},System.Threading.CancellationToken)">
+            <summary>
+                Resets the export entity Async.
+            </summary>
+            <remarks>
+                Resets the export entity.
+            </remarks>
+            <param name="entitiesExported">
+                The entities exported.
+            </param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>
+                The number of state entries written to the database.
+            </returns>
+        </member>
+        <member name="T:XCore.Common.Data.Repository.Repository`2">
+            <summary>
+                The repository.
+            </summary>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.Repository`2.#ctor(`0,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+                Initializes a new instance of the <see cref="T:XCore.Common.Data.Repository.Repository`2" /> class.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="setEntityReadyToExport">If true, set entity ready to export.</param>
+            <param name="ignoreExportTracking">If true, ignore export tracking.</param>
+        </member>
+        <member name="P:XCore.Common.Data.Repository.Repository`2.IgnoreExportTracking">
+            <summary>
+                Gets a value indicating whether ignore export tracking.
+            </summary>
+        </member>
+        <member name="P:XCore.Common.Data.Repository.Repository`2.SetEntityReadyToExport">
+            <summary>
+                Gets a value indicating whether set entity ready to export.
+            </summary>
+        </member>
+        <member name="P:XCore.Common.Data.Repository.Repository`2.Context">
+            <summary>
+                Gets the context.
+            </summary>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.Repository`2.Get">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.Repository`2.Get(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.Repository`2.Add(`1,System.Boolean,System.Nullable{System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.Repository`2.AddRange(System.Collections.Generic.IEnumerable{`1},System.Boolean,System.Nullable{System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.Repository`2.Update(`1,System.Boolean,System.Nullable{System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.Repository`2.UpdateRange(System.Collections.Generic.IEnumerable{`1},System.Boolean,System.Nullable{System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.Repository`2.Delete(System.Int32,System.Boolean,System.Nullable{System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.Repository`2.DeleteRange(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean,System.Nullable{System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.Repository`2.BeginTransaction">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.Repository`2.CommitTransaction(Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.Repository`2.RollbackTransaction(Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.Repository`2.SaveChanges(System.Nullable{System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.Repository`2.SaveImportChanges(System.Nullable{System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.Repository`2.ResetExportEntity(System.Collections.Generic.List{System.Object})">
+            <inheritdoc />
+        </member>
+        <member name="T:XCore.Common.Data.Repository.RepositoryAsync`2">
+            <summary>
+                The repository async.
+            </summary>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.RepositoryAsync`2.#ctor(`0,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+                Initializes a new instance of the <see cref="T:XCore.Common.Data.Repository.RepositoryAsync`2" /> class.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="setEntityReadyToExport">If true, set entity ready to export.</param>
+            <param name="ignoreExportTracking">If true, ignore export tracking.</param>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.RepositoryAsync`2.GetAsync(System.Int32,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.RepositoryAsync`2.AddAsync(`1,System.Boolean,System.Nullable{System.Boolean},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.RepositoryAsync`2.AddRangeAsync(System.Collections.Generic.IEnumerable{`1},System.Boolean,System.Nullable{System.Boolean},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.RepositoryAsync`2.UpdateAsync(`1,System.Boolean,System.Nullable{System.Boolean},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.RepositoryAsync`2.UpdateRangeAsync(System.Collections.Generic.IEnumerable{`1},System.Boolean,System.Nullable{System.Boolean},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.RepositoryAsync`2.DeleteAsync(System.Int32,System.Boolean,System.Nullable{System.Boolean},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.RepositoryAsync`2.DeleteRangeAsync(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean,System.Nullable{System.Boolean},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.RepositoryAsync`2.BeginTransactionAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.RepositoryAsync`2.CommitTransactionAsync(Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.RepositoryAsync`2.RollbackTransactionAsync(Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.RepositoryAsync`2.SaveChangesAsync(System.Nullable{System.Boolean},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.RepositoryAsync`2.SaveImportChangesAsync(System.Nullable{System.Boolean},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:XCore.Common.Data.Repository.RepositoryAsync`2.ResetExportEntityAsync(System.Collections.Generic.List{System.Object},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="T:XCore.Common.Data.Repository.ServiceCollectionExtensions">
+            <summary>
+                The service collection extensions.
+            </summary>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.ServiceCollectionExtensions.AddRepository``4(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+                Adds the repository.
+            </summary>
+            <param name="services">The services.</param>
+            <param name="setEntityReadyToExport">If true, set entity ready to export.</param>
+            <param name="ignoreExportTracking">If true, ignore export tracking.</param>
+            <returns>An IServiceCollection.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.Repository.ServiceCollectionExtensions.AddRepository``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+                Adds the repository.
+            </summary>
+            <param name="services">The services.</param>
+            <param name="setEntityReadyToExport">If true, set entity ready to export.</param>
+            <param name="ignoreExportTracking">If true, ignore export tracking.</param>
+            <returns>An IServiceCollection.</returns>
+        </member>
+    </members>
+</doc>

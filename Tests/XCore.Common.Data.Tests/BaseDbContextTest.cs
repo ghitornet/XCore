@@ -149,6 +149,9 @@ public class BaseDbContextTest
         blog.IsReadyToExport.Should().Be(false);
     }
 
+    /// <summary>
+    /// S the.
+    /// </summary>
     [Fact]
     public void S()
     {
@@ -183,6 +186,9 @@ public class BaseDbContextTest
         blogFromDb.Url.Should().Be("Url Test Blog 2");
         blog.IsReadyToExport.Should().Be(true);
     }
+    /// <summary>
+    /// S2S the.
+    /// </summary>
     [Fact]
     public void S2()
     {
@@ -210,6 +216,40 @@ public class BaseDbContextTest
 
         // ACT
         context.SaveImportChanges(true);
+        var blogFromDb = context.Set<Blog>().Find(blog.Id)!;
+
+        // ASSERT
+        blog.Id.Should().NotBe(0);
+        blogFromDb.Url.Should().Be("Url Test Blog");
+        blog.IsReadyToExport.Should().Be(true);
+    }
+
+    /// <summary>
+    /// S3S the.
+    /// </summary>
+    [Fact]
+    public void S3()
+    {
+        // ARRANGE
+        var provider = new ServiceCollection()
+            .AddLogging()
+            .AddDbContext<TestDbContext>(options =>
+            {
+                options.UseInMemoryDatabase(Guid.NewGuid().ToString());
+            })
+            .BuildServiceProvider();
+
+        var context = provider.GetRequiredService<TestDbContext>();
+
+        var blog = new Blog
+        {
+            Url = "Url Test Blog"
+        };
+
+        // ACT
+        context.Set<Blog>().Update(blog);
+        context.SaveAllChanges(true);
+
         var blogFromDb = context.Set<Blog>().Find(blog.Id)!;
 
         // ASSERT

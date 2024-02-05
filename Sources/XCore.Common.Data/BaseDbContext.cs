@@ -1,7 +1,4 @@
-﻿using System.Linq.Expressions;
-using Microsoft.Extensions.Logging;
-
-namespace XCore.Common.Data;
+﻿namespace XCore.Common.Data;
 
 /// <summary>
 ///     The base db context.
