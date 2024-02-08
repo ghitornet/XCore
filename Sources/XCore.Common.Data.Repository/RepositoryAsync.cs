@@ -11,10 +11,11 @@ public abstract class RepositoryAsync<TDbContext, TEntity> : Repository<TDbConte
     ///     Initializes a new instance of the <see cref="RepositoryAsync{TDbContext, TEntity}" /> class.
     /// </summary>
     /// <param name="context">The context.</param>
+    /// <param name="loggerFactory">The logger factory.</param>
     /// <param name="setEntityReadyToExport">If true, set entity ready to export.</param>
     /// <param name="ignoreExportTracking">If true, ignore export tracking.</param>
-    protected RepositoryAsync(TDbContext context, bool? setEntityReadyToExport = null,
-        bool? ignoreExportTracking = null) : base(context, setEntityReadyToExport, ignoreExportTracking)
+    protected RepositoryAsync(TDbContext context, ILoggerFactory loggerFactory, bool? setEntityReadyToExport = null,
+        bool? ignoreExportTracking = null) : base(context, loggerFactory, setEntityReadyToExport, ignoreExportTracking)
     {
     }
 

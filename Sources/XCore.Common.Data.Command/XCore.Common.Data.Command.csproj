@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>XCore.Common.Data.Command</PackageId>
+    <Title>Wrapper MediatR</Title>
+    <Description>
+      'XCore.Common.Data.Command' is a NuGet package designed to serve as a layer between your application and MediatR. It simplifies the process of sending commands and publishing events in your .NET applications.
+    </Description>
+    <DocumentationFile>../../Docs/XCore.Common.Data.Command.xml</DocumentationFile>
+    <Version>1.0.1.0</Version>
+    <FileVersion>1.0.1.0</FileVersion>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\XCore.Common.Data.Repository\XCore.Common.Data.Repository.csproj" />
+  </ItemGroup>
+</Project>

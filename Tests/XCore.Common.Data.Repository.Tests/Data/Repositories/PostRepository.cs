@@ -14,12 +14,15 @@ public interface IPostRepository : IRepositoryAsync<Post>
 ///     Initializes a new instance of the <see cref="PostRepository" /> class.
 /// </remarks>
 /// <param name="context">The context.</param>
+/// <param name="loggerFactory">The logger factory.</param>
 /// <param name="setEntityReadyToExport">If true, set entity ready to export.</param>
 /// <param name="ignoreExportTracking">If true, ignore export tracking.</param>
 public class PostRepository(
     TestDbContext context,
+    ILoggerFactory loggerFactory,
     bool? setEntityReadyToExport = null,
     bool? ignoreExportTracking = null)
-    : RepositoryAsync<TestDbContext, Post>(context, setEntityReadyToExport, ignoreExportTracking), IPostRepository
+    : RepositoryAsync<TestDbContext, Post>(context, loggerFactory, setEntityReadyToExport, ignoreExportTracking),
+        IPostRepository
 {
 }

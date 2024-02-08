@@ -4,12 +4,12 @@
     <PackageId>XCore.Common.Data</PackageId>
     <Title>Interface-Driven Entity Management for Databases</Title>
     <Description>
-      
+      This NuGet package, named 'XCore.Common.Data', serves as a robust and efficient bridge between your application and the underlying database. Leveraging the power of Entity Framework Core, it abstracts the complexities of database operations into simple, easy-to-use methods.
     </Description>
     <DocumentationFile>../../Docs/XCore.Common.Data.xml</DocumentationFile>
-    <Version>1.0.0</Version>
-    <FileVersion>1.0.0</FileVersion>
-    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <Version>1.0.1.0</Version>
+    <FileVersion>1.0.1.0</FileVersion>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>

@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Sources\XCore.Common.Data.Command\XCore.Common.Data.Command.csproj" />
     <ProjectReference Include="..\..\Sources\XCore.Common.Data.Repository\XCore.Common.Data.Repository.csproj" />
     <ProjectReference Include="..\..\Sources\XCore.Common.Data\XCore.Common.Data.csproj" />
     <ProjectReference Include="..\XCore.Common.Data.Entity.Tests\XCore.Common.Data.Entity.Tests.csproj" />
@@ -32,6 +33,7 @@
 
   <ItemGroup>
     <Folder Include="Data\Repositories\" />
+    <Folder Include="Commands\" />
   </ItemGroup>
 
 </Project>

@@ -308,11 +308,12 @@
                 The repository.
             </summary>
         </member>
-        <member name="M:XCore.Common.Data.Repository.Repository`2.#ctor(`0,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+        <member name="M:XCore.Common.Data.Repository.Repository`2.#ctor(`0,Microsoft.Extensions.Logging.ILoggerFactory,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
             <summary>
                 Initializes a new instance of the <see cref="T:XCore.Common.Data.Repository.Repository`2" /> class.
             </summary>
             <param name="context">The context.</param>
+            <param name="loggerFactory">The logger factory.</param>
             <param name="setEntityReadyToExport">If true, set entity ready to export.</param>
             <param name="ignoreExportTracking">If true, ignore export tracking.</param>
         </member>
@@ -378,11 +379,12 @@
                 The repository async.
             </summary>
         </member>
-        <member name="M:XCore.Common.Data.Repository.RepositoryAsync`2.#ctor(`0,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+        <member name="M:XCore.Common.Data.Repository.RepositoryAsync`2.#ctor(`0,Microsoft.Extensions.Logging.ILoggerFactory,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
             <summary>
                 Initializes a new instance of the <see cref="T:XCore.Common.Data.Repository.RepositoryAsync`2" /> class.
             </summary>
             <param name="context">The context.</param>
+            <param name="loggerFactory">The logger factory.</param>
             <param name="setEntityReadyToExport">If true, set entity ready to export.</param>
             <param name="ignoreExportTracking">If true, ignore export tracking.</param>
         </member>

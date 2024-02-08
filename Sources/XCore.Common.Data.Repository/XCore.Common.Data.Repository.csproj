@@ -7,9 +7,9 @@
       The XCore.Common.Data.Repository NuGet package is a useful tool for managing the repository pattern in Entity Framework Core. This package provides features to simplify data access and management of Create, Read, Update, Delete (CRUD) operations within a .NET application that uses Entity Framework Core.
     </Description>
     <DocumentationFile>../../Docs/XCore.Common.Data.Repository.xml</DocumentationFile>
-    <Version>1.0.0</Version>
-    <FileVersion>1.0.0</FileVersion>
-    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <Version>1.0.1.0</Version>
+    <FileVersion>1.0.1.0</FileVersion>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>

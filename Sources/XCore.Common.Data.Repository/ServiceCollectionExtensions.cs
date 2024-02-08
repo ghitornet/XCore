@@ -54,19 +54,23 @@ public static class ServiceCollectionExtensions
         foreach (var type in entityTypes)
         {
             var repositoryInterface = type.GetInterfaces().First(x => !x.IsGenericType);
-            var repositoryGenericInterface = type.GetInterfaces().First(x => x.IsGenericType);
+            var repositoryGenericInterface = type.GetInterfaces().Where(x => x != repositoryInterface)
+                .OrderByDescending(x => x.Name)
+                .First(x => x.IsGenericType);
 
             services.AddScoped(repositoryInterface, provider =>
             {
                 var context = provider.GetRequiredService<TDbContext>();
-                return Activator.CreateInstance(type, context, setEntityReadyToExport,
+                var loggerFactory = provider.GetRequiredService<ILoggerFactory>();
+                return Activator.CreateInstance(type, context, loggerFactory, setEntityReadyToExport,
                     ignoreExportTracking)!;
             });
 
             services.AddScoped(repositoryGenericInterface, provider =>
             {
                 var context = provider.GetRequiredService<TDbContext>();
-                return Activator.CreateInstance(type, context, setEntityReadyToExport,
+                var loggerFactory = provider.GetRequiredService<ILoggerFactory>();
+                return Activator.CreateInstance(type, context, loggerFactory, setEntityReadyToExport,
                     ignoreExportTracking)!;
             });
         }

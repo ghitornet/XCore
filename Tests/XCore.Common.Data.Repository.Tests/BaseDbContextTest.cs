@@ -1,3 +1,6 @@
+using MediatR;
+using XCore.Common.Data.Command;
+
 namespace XCore.Common.Data.Repository.Tests;
 
 /// <summary>
@@ -19,10 +22,11 @@ public class BaseDbContextTest
                 options.UseInMemoryDatabase(Guid.NewGuid().ToString());
             })
             .AddRepository<TestDbContext>(setEntityReadyToExport: true, ignoreExportTracking: false)
+            .AddCommandData()
             .BuildServiceProvider();
 
-        var blogRepository = provider.GetRequiredService<IBlogRepository>();
-        var postRepository = provider.GetRequiredService<IPostRepository>();
+        var mediator = provider.GetRequiredService<IMediator>();
+        var blogRepository = provider.GetRequiredService<IRepositoryAsync<Blog>>();
 
         var blog = new Blog
         {
@@ -33,9 +37,10 @@ public class BaseDbContextTest
 
         blog.Posts.Add(post);
 
+        var blogBuilder = new RequestBuilder<Blog>().Add(blog).InsertRequest();
+
         // ACT
-        blogRepository.Add(blog);
-        blogRepository.SaveChanges();
+        mediator.Send(blogBuilder);
 
         var blogFromDb = blogRepository.Get().Select(x => new { x.Id, x.Url, x.Posts, x.CreatedAt }).ToList();
 

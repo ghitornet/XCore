@@ -3,7 +3,7 @@
 /// <summary>
 ///     The blog repository.
 /// </summary>
-public interface IBlogRepository : IRepository<Blog>
+public interface IBlogRepository : IRepositoryAsync<Blog>
 {
 }
 
@@ -14,12 +14,14 @@ public interface IBlogRepository : IRepository<Blog>
 ///     Initializes a new instance of the <see cref="BlogRepository" /> class.
 /// </remarks>
 /// <param name="context">The context.</param>
+/// <param name="loggerFactory">The logger factory.</param>
 /// <param name="setEntityReadyToExport">If true, set entity ready to export.</param>
 /// <param name="ignoreExportTracking">If true, ignore export tracking.</param>
 public class BlogRepository(
     TestDbContext context,
+    ILoggerFactory loggerFactory,
     bool? setEntityReadyToExport = null,
     bool? ignoreExportTracking = null)
-    : Repository<TestDbContext, Blog>(context, setEntityReadyToExport, ignoreExportTracking), IBlogRepository
+    : RepositoryAsync<TestDbContext, Blog>(context, loggerFactory, setEntityReadyToExport, ignoreExportTracking), IBlogRepository
 {
 }
