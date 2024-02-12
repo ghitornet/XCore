@@ -33,7 +33,7 @@ public interface IRepository<TEntity>
     /// <param name="entity">The entity.</param>
     /// <param name="saveChanges">if set to <c>true</c> [save changes].</param>
     /// <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
-    TEntity Add(TEntity entity, bool saveChanges = true, bool? setEntityReadyToExport = null);
+    TEntity Add(TEntity entity, bool saveChanges = false, bool? setEntityReadyToExport = null);
 
     /// <summary>
     ///     Adds the entities range.
@@ -44,7 +44,7 @@ public interface IRepository<TEntity>
     /// <param name="entities">The entities.</param>
     /// <param name="saveChanges">if set to <c>true</c> [save changes].</param>
     /// <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
-    void AddRange(IEnumerable<TEntity> entities, bool saveChanges = true, bool? setEntityReadyToExport = null);
+    void AddRange(IEnumerable<TEntity> entities, bool saveChanges = false, bool? setEntityReadyToExport = null);
 
     /// <summary>
     ///     Updates the entity.
@@ -55,7 +55,7 @@ public interface IRepository<TEntity>
     /// <param name="entity">The entity.</param>
     /// <param name="saveChanges">if set to <c>true</c> [save changes].</param>
     /// <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
-    TEntity Update(TEntity entity, bool saveChanges = true, bool? setEntityReadyToExport = null);
+    TEntity Update(TEntity entity, bool saveChanges = false, bool? setEntityReadyToExport = null);
 
     /// <summary>
     ///     Updates the entities range.
@@ -66,7 +66,7 @@ public interface IRepository<TEntity>
     /// <param name="entities">The entities.</param>
     /// <param name="saveChanges">if set to <c>true</c> [save changes].</param>
     /// <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
-    void UpdateRange(IEnumerable<TEntity> entities, bool saveChanges = true, bool? setEntityReadyToExport = null);
+    void UpdateRange(IEnumerable<TEntity> entities, bool saveChanges = false, bool? setEntityReadyToExport = null);
 
     /// <summary>
     ///     Deletes the entity.
@@ -77,7 +77,7 @@ public interface IRepository<TEntity>
     /// <param name="id">The id.</param>
     /// <param name="saveChanges">if set to <c>true</c> [save changes].</param>
     /// <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
-    void Delete(int id, bool saveChanges = true, bool? setEntityReadyToExport = null);
+    void Delete(int id, bool saveChanges = false, bool? setEntityReadyToExport = null);
 
     /// <summary>
     ///     Deletes the entities range.
@@ -88,7 +88,7 @@ public interface IRepository<TEntity>
     /// <param name="ids">The ids.</param>
     /// <param name="saveChanges">if set to <c>true</c> [save changes].</param>
     /// <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
-    void DeleteRange(IEnumerable<int> ids, bool saveChanges = true, bool? setEntityReadyToExport = null);
+    void DeleteRange(IEnumerable<int> ids, bool saveChanges = false, bool? setEntityReadyToExport = null);
 
     /// <summary>
     ///     Begins the transaction.

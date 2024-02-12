@@ -15,7 +15,7 @@ public abstract class UpdateRequestHandler<TEntity>(IRepositoryAsync<TEntity> re
     /// <returns>A Task.</returns>
     public virtual async Task<TEntity[]> Handle(UpdateRequest<TEntity> request, CancellationToken cancellationToken)
     {
-        await repository.UpdateRangeAsync(request.Entities, cancellationToken: cancellationToken);
+        await repository.UpdateRangeAsync(request.Entities, true, cancellationToken: cancellationToken);
         return request.Entities;
     }
 }

@@ -21,7 +21,7 @@ public abstract class InsertRequestHandler<TEntity>(IRepositoryAsync<TEntity> re
     {
         try
         {
-            await repository.AddRangeAsync(request.Entities, cancellationToken: cancellationToken);
+            await repository.AddRangeAsync(request.Entities, true, cancellationToken: cancellationToken);
             return request.Entities;
         }
         catch (Exception e)
@@ -29,6 +29,5 @@ public abstract class InsertRequestHandler<TEntity>(IRepositoryAsync<TEntity> re
             Console.WriteLine(e);
             throw;
         }
-        
     }
 }

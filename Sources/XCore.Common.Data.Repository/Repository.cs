@@ -52,7 +52,7 @@ public abstract class Repository<TDbContext, TEntity> : IRepository<TEntity>
     }
 
     /// <inheritdoc />
-    public TEntity Add(TEntity entity, bool saveChanges = true, bool? setEntityReadyToExport = null)
+    public TEntity Add(TEntity entity, bool saveChanges = false, bool? setEntityReadyToExport = null)
     {
         if (SetEntityReadyToExport is null && setEntityReadyToExport is null)
             throw new ArgumentNullException(nameof(setEntityReadyToExport), "Parameter not configured correctly.");
@@ -69,7 +69,7 @@ public abstract class Repository<TDbContext, TEntity> : IRepository<TEntity>
     }
 
     /// <inheritdoc />
-    public void AddRange(IEnumerable<TEntity> entities, bool saveChanges = true, bool? setEntityReadyToExport = null)
+    public void AddRange(IEnumerable<TEntity> entities, bool saveChanges = false, bool? setEntityReadyToExport = null)
     {
         if (SetEntityReadyToExport is null && setEntityReadyToExport is null)
             throw new ArgumentNullException(nameof(setEntityReadyToExport), "Parameter not configured correctly.");
@@ -84,7 +84,7 @@ public abstract class Repository<TDbContext, TEntity> : IRepository<TEntity>
     }
 
     /// <inheritdoc />
-    public TEntity Update(TEntity entity, bool saveChanges = true, bool? setEntityReadyToExport = null)
+    public TEntity Update(TEntity entity, bool saveChanges = false, bool? setEntityReadyToExport = null)
     {
         if (SetEntityReadyToExport is null && setEntityReadyToExport is null)
             throw new ArgumentNullException(nameof(setEntityReadyToExport), "Parameter not configured correctly.");
@@ -101,7 +101,7 @@ public abstract class Repository<TDbContext, TEntity> : IRepository<TEntity>
     }
 
     /// <inheritdoc />
-    public void UpdateRange(IEnumerable<TEntity> entities, bool saveChanges = true, bool? setEntityReadyToExport = null)
+    public void UpdateRange(IEnumerable<TEntity> entities, bool saveChanges = false, bool? setEntityReadyToExport = null)
     {
         if (SetEntityReadyToExport is null && setEntityReadyToExport is null)
             throw new ArgumentNullException(nameof(setEntityReadyToExport), "Parameter not configured correctly.");
@@ -116,7 +116,7 @@ public abstract class Repository<TDbContext, TEntity> : IRepository<TEntity>
     }
 
     /// <inheritdoc />
-    public void Delete(int id, bool saveChanges = true, bool? setEntityReadyToExport = null)
+    public void Delete(int id, bool saveChanges = false, bool? setEntityReadyToExport = null)
     {
         if (SetEntityReadyToExport is null && setEntityReadyToExport is null)
             throw new ArgumentNullException(nameof(setEntityReadyToExport), "Parameter not configured correctly.");
@@ -135,7 +135,7 @@ public abstract class Repository<TDbContext, TEntity> : IRepository<TEntity>
     }
 
     /// <inheritdoc />
-    public void DeleteRange(IEnumerable<int> ids, bool saveChanges = true, bool? setEntityReadyToExport = null)
+    public void DeleteRange(IEnumerable<int> ids, bool saveChanges = false, bool? setEntityReadyToExport = null)
     {
         if (SetEntityReadyToExport is null && setEntityReadyToExport is null)
             throw new ArgumentNullException(nameof(setEntityReadyToExport), "Parameter not configured correctly.");

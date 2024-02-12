@@ -9,11 +9,37 @@
 /// <remarks>
 ///     Initializes a new instance of the <see cref="BaseDbContext" /> class.
 /// </remarks>
-/// <param name="contextOptions">The context options.</param>
-/// <param name="logger">The system logger.</param>
-public abstract partial class BaseDbContext(DbContextOptions contextOptions, ILogger<BaseDbContext> logger)
-    : DbContext(contextOptions)
+public abstract partial class BaseDbContext : DbContext
 {
+    private readonly ILogger<BaseDbContext> _logger;
+
+    /// <summary>
+    ///     The base db context.
+    /// </summary>
+    /// <remarks>
+    ///     This class is used to provide a base db context for all the other db contexts.
+    /// </remarks>
+    /// <remarks>
+    ///     Initializes a new instance of the <see cref="BaseDbContext" /> class.
+    /// </remarks>
+    /// <param name="contextOptions">The context options.</param>
+    /// <param name="logger">The system logger.</param>
+    protected BaseDbContext(DbContextOptions contextOptions, ILoggerFactory loggerFactory) : base(contextOptions)
+    {
+        _logger = loggerFactory.CreateLogger<BaseDbContext>();
+    }
+
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="BaseDbContext" /> class.
+    /// </summary>
+    /// <param name="contextOptions">The context options.</param>
+    /// <param name="loggerFactory">The logger factory.</param>
+    protected BaseDbContext(DbContextOptions<BaseDbContext> contextOptions, ILoggerFactory loggerFactory) : base(
+        contextOptions)
+    {
+        _logger = loggerFactory.CreateLogger<BaseDbContext>();
+    }
+
     /// <summary>
     ///     Ons the model creating.
     /// </summary>
@@ -47,12 +73,12 @@ public abstract partial class BaseDbContext(DbContextOptions contextOptions, ILo
                 if (modelBuilder.Model.FindEntityType(entityType) != null) continue;
 
                 modelBuilder.Model.AddEntityType(entityType);
-                logger.LogTrace("The {Name} entity has been added to the data context.", entityType.Name);
+                _logger.LogTrace("The {Name} entity has been added to the data context.", entityType.Name);
             }
         }
         catch (Exception e)
         {
-            logger.LogError(e, "An error occurred while adding the entities to the data context.");
+            _logger.LogError(e, "An error occurred while adding the entities to the data context.");
             throw;
         }
 
@@ -68,14 +94,15 @@ public abstract partial class BaseDbContext(DbContextOptions contextOptions, ILo
 
             foreach (var assembly in configurationEntityTypes.Select(x => x.Assembly).Distinct())
             {
-                logger.LogTrace(
-                    "The configurations of the entities that are in this assembly {FullName} have been loaded.", assembly.FullName);
+                _logger.LogTrace(
+                    "The configurations of the entities that are in this assembly {FullName} have been loaded.",
+                    assembly.FullName);
                 modelBuilder.ApplyConfigurationsFromAssembly(assembly);
             }
         }
         catch (Exception e)
         {
-            logger.LogError(e, "An error occurred while adding the entity configurations to the data context.");
+            _logger.LogError(e, "An error occurred while adding the entity configurations to the data context.");
             throw;
         }
 
@@ -89,13 +116,14 @@ public abstract partial class BaseDbContext(DbContextOptions contextOptions, ILo
                     var entityNotDeleted = Expression.Lambda(Expression.Equal(prop, Expression.Constant(null)), param);
 
                     entityType.SetQueryFilter(entityNotDeleted);
-                    logger.LogTrace(
-                        "You have configured the base query to delete the upload of records marked as deleted for the entity {Name}.", entityType.Name);
+                    _logger.LogTrace(
+                        "You have configured the base query to delete the upload of records marked as deleted for the entity {Name}.",
+                        entityType.Name);
                 }
         }
         catch (Exception e)
         {
-            logger.LogError(e, "An error occurred while adding the query filter to the data context.");
+            _logger.LogError(e, "An error occurred while adding the query filter to the data context.");
             throw;
         }
     }

@@ -26,7 +26,7 @@ public abstract class RepositoryAsync<TDbContext, TEntity> : Repository<TDbConte
     }
 
     /// <inheritdoc />
-    public async Task<TEntity> AddAsync(TEntity entity, bool saveChanges = true, bool? setEntityReadyToExport = null,
+    public async Task<TEntity> AddAsync(TEntity entity, bool saveChanges = false, bool? setEntityReadyToExport = null,
         CancellationToken cancellationToken = default)
     {
         if (SetEntityReadyToExport is null && setEntityReadyToExport is null)
@@ -39,7 +39,7 @@ public abstract class RepositoryAsync<TDbContext, TEntity> : Repository<TDbConte
     }
 
     /// <inheritdoc />
-    public async Task AddRangeAsync(IEnumerable<TEntity> entities, bool saveChanges = true,
+    public async Task AddRangeAsync(IEnumerable<TEntity> entities, bool saveChanges = false,
         bool? setEntityReadyToExport = null,
         CancellationToken cancellationToken = default)
     {
@@ -51,7 +51,7 @@ public abstract class RepositoryAsync<TDbContext, TEntity> : Repository<TDbConte
     }
 
     /// <inheritdoc />
-    public async Task<TEntity> UpdateAsync(TEntity entity, bool saveChanges = true, bool? setEntityReadyToExport = null,
+    public async Task<TEntity> UpdateAsync(TEntity entity, bool saveChanges = false, bool? setEntityReadyToExport = null,
         CancellationToken cancellationToken = default)
     {
         if (SetEntityReadyToExport is null && setEntityReadyToExport is null)
@@ -64,7 +64,7 @@ public abstract class RepositoryAsync<TDbContext, TEntity> : Repository<TDbConte
     }
 
     /// <inheritdoc />
-    public async Task UpdateRangeAsync(IEnumerable<TEntity> entities, bool saveChanges = true,
+    public async Task UpdateRangeAsync(IEnumerable<TEntity> entities, bool saveChanges = false,
         bool? setEntityReadyToExport = null,
         CancellationToken cancellationToken = default)
     {
@@ -76,7 +76,7 @@ public abstract class RepositoryAsync<TDbContext, TEntity> : Repository<TDbConte
     }
 
     /// <inheritdoc />
-    public async Task DeleteAsync(int id, bool saveChanges = true, bool? setEntityReadyToExport = null,
+    public async Task DeleteAsync(int id, bool saveChanges = false, bool? setEntityReadyToExport = null,
         CancellationToken cancellationToken = default)
     {
         if (SetEntityReadyToExport is null && setEntityReadyToExport is null)
@@ -92,7 +92,7 @@ public abstract class RepositoryAsync<TDbContext, TEntity> : Repository<TDbConte
     }
 
     /// <inheritdoc />
-    public async Task DeleteRangeAsync(IEnumerable<int> ids, bool saveChanges = true,
+    public async Task DeleteRangeAsync(IEnumerable<int> ids, bool saveChanges = false,
         bool? setEntityReadyToExport = null,
         CancellationToken cancellationToken = default)
     {

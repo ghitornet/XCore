@@ -23,7 +23,7 @@ public interface IRepositoryAsync<TEntity> : IRepository<TEntity>
     /// <returns>
     ///     The entity added.
     /// </returns>
-    Task<TEntity> AddAsync(TEntity entity, bool saveChanges = true, bool? setEntityReadyToExport = null, CancellationToken cancellationToken = default);
+    Task<TEntity> AddAsync(TEntity entity, bool saveChanges = false, bool? setEntityReadyToExport = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     ///     Adds the entities range async.
@@ -34,7 +34,7 @@ public interface IRepositoryAsync<TEntity> : IRepository<TEntity>
     /// <param name="saveChanges">if set to <c>true</c> [save changes].</param>
     /// <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
     /// <param name="cancellationToken">The cancellation token.</param>
-    Task AddRangeAsync(IEnumerable<TEntity> entities, bool saveChanges = true, bool? setEntityReadyToExport = null, CancellationToken cancellationToken = default);
+    Task AddRangeAsync(IEnumerable<TEntity> entities, bool saveChanges = false, bool? setEntityReadyToExport = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     ///     Updates the entity async.
@@ -46,7 +46,7 @@ public interface IRepositoryAsync<TEntity> : IRepository<TEntity>
     /// <returns>
     ///     The entity added.
     /// </returns>
-    Task<TEntity> UpdateAsync(TEntity entity, bool saveChanges = true, bool? setEntityReadyToExport = null, CancellationToken cancellationToken = default);
+    Task<TEntity> UpdateAsync(TEntity entity, bool saveChanges = false, bool? setEntityReadyToExport = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     ///     Updates the entities range async.
@@ -56,7 +56,7 @@ public interface IRepositoryAsync<TEntity> : IRepository<TEntity>
     /// <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns>A Task.</returns>
-    Task UpdateRangeAsync(IEnumerable<TEntity> entities, bool saveChanges = true, bool? setEntityReadyToExport = null, CancellationToken cancellationToken = default);
+    Task UpdateRangeAsync(IEnumerable<TEntity> entities, bool saveChanges = false, bool? setEntityReadyToExport = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     ///     Deletes the entity async.
@@ -66,7 +66,7 @@ public interface IRepositoryAsync<TEntity> : IRepository<TEntity>
     /// <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns>A Task.</returns>
-    Task DeleteAsync(int id, bool saveChanges = true, bool? setEntityReadyToExport = null, CancellationToken cancellationToken = default);
+    Task DeleteAsync(int id, bool saveChanges = false, bool? setEntityReadyToExport = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     ///     Deletes the entities range async.
@@ -76,7 +76,7 @@ public interface IRepositoryAsync<TEntity> : IRepository<TEntity>
     /// <param name="setEntityReadyToExport">if set to <c>true</c> [set entity ready to export].</param>
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns>A Task.</returns>
-    Task DeleteRangeAsync(IEnumerable<int> ids, bool saveChanges = true, bool? setEntityReadyToExport = null, CancellationToken cancellationToken = default);
+    Task DeleteRangeAsync(IEnumerable<int> ids, bool saveChanges = false, bool? setEntityReadyToExport = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     ///     Begins the transaction async.

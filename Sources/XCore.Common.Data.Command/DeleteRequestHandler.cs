@@ -15,7 +15,7 @@ public abstract class DeleteRequestHandler<TEntity>(IRepositoryAsync<TEntity> re
     /// <returns>A Task.</returns>
     public async Task<TEntity[]> Handle(DeleteRequest<TEntity> request, CancellationToken cancellationToken)
     {
-        await repository.DeleteRangeAsync(request.Entities.Select(x => x.Id), cancellationToken: cancellationToken);
+        await repository.DeleteRangeAsync(request.Entities.Select(x => x.Id), true, cancellationToken: cancellationToken);
         return request.Entities;
     }
 }

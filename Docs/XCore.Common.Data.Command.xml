@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XCore.Common.Data.Command</name>
+    </assembly>
+    <members>
+        <member name="T:XCore.Common.Data.Command.DeleteRequest`1">
+            <summary>
+                The delete request.
+            </summary>
+        </member>
+        <member name="M:XCore.Common.Data.Command.DeleteRequest`1.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:XCore.Common.Data.Command.InsertRequest`1" /> class.
+            </summary>
+        </member>
+        <member name="T:XCore.Common.Data.Command.DeleteRequestHandler`1">
+            <summary>
+                The delete request handler.
+            </summary>
+        </member>
+        <member name="M:XCore.Common.Data.Command.DeleteRequestHandler`1.#ctor(XCore.Common.Data.Repository.IRepositoryAsync{`0})">
+            <summary>
+                The delete request handler.
+            </summary>
+        </member>
+        <member name="M:XCore.Common.Data.Command.DeleteRequestHandler`1.Handle(XCore.Common.Data.Command.DeleteRequest{`0},System.Threading.CancellationToken)">
+            <summary>
+                Handles the update request.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="T:XCore.Common.Data.Command.InsertRequest`1">
+            <summary>
+                The create request.
+            </summary>
+        </member>
+        <member name="M:XCore.Common.Data.Command.InsertRequest`1.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:XCore.Common.Data.Command.InsertRequest`1" /> class.
+            </summary>
+        </member>
+        <member name="T:XCore.Common.Data.Command.InsertRequestHandler`1">
+            <summary>
+                The insert request handler.
+            </summary>
+            <remarks>
+                Initializes a new instance of the <see cref="T:XCore.Common.Data.Command.InsertRequestHandler`1" /> class.
+            </remarks>
+            <param name="repository">The repository.</param>
+        </member>
+        <member name="M:XCore.Common.Data.Command.InsertRequestHandler`1.#ctor(XCore.Common.Data.Repository.IRepositoryAsync{`0})">
+            <summary>
+                The insert request handler.
+            </summary>
+            <remarks>
+                Initializes a new instance of the <see cref="T:XCore.Common.Data.Command.InsertRequestHandler`1" /> class.
+            </remarks>
+            <param name="repository">The repository.</param>
+        </member>
+        <member name="M:XCore.Common.Data.Command.InsertRequestHandler`1.Handle(XCore.Common.Data.Command.InsertRequest{`0},System.Threading.CancellationToken)">
+            <summary>
+                Handles the insert request.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="T:XCore.Common.Data.Command.RequestBuilder`1">
+            <summary>
+                The request builder.
+            </summary>
+        </member>
+        <member name="P:XCore.Common.Data.Command.RequestBuilder`1.Entities">
+            <summary>
+                Gets or sets the entity.
+            </summary>
+        </member>
+        <member name="T:XCore.Common.Data.Command.RequestBuilderExtensions">
+            <summary>
+                The request builder extensions.
+            </summary>
+        </member>
+        <member name="M:XCore.Common.Data.Command.RequestBuilderExtensions.Add``1(XCore.Common.Data.Command.RequestBuilder{``0},``0)">
+            <summary>
+                Adds the entity.
+            </summary>
+            <param name="builder">The builder.</param>
+            <param name="bom">The bom.</param>
+            <returns>A RequestBuilder.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.Command.RequestBuilderExtensions.AddRange``1(XCore.Common.Data.Command.RequestBuilder{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+                Adds the entities range.
+            </summary>
+            <param name="builder">The builder.</param>
+            <param name="entities">The entities.</param>
+            <returns>A RequestBuilder.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.Command.RequestBuilderExtensions.InsertRequest``1(XCore.Common.Data.Command.RequestBuilder{``0})">
+            <summary>
+                Inserts the build.
+            </summary>
+            <param name="builder">The builder.</param>
+            <returns>An IRequest.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.Command.RequestBuilderExtensions.UpdateRequest``1(XCore.Common.Data.Command.RequestBuilder{``0})">
+            <summary>
+                Updates the request.
+            </summary>
+            <param name="builder">The builder.</param>
+            <returns>An UpdateRequest.</returns>
+        </member>
+        <member name="M:XCore.Common.Data.Command.RequestBuilderExtensions.DeleteRequest``1(XCore.Common.Data.Command.RequestBuilder{``0})">
+            <summary>
+                Deletes the request.
+            </summary>
+            <param name="builder">The builder.</param>
+            <returns>A DeleteRequest.</returns>
+        </member>
+        <member name="T:XCore.Common.Data.Command.ServiceCollectionExtensions">
+            <summary>
+                The service collection extensions.
+            </summary>
+        </member>
+        <member name="T:XCore.Common.Data.Command.UpdateRequest`1">
+            <summary>
+                The update request.
+            </summary>
+        </member>
+        <member name="M:XCore.Common.Data.Command.UpdateRequest`1.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:XCore.Common.Data.Command.InsertRequest`1" /> class.
+            </summary>
+        </member>
+        <member name="T:XCore.Common.Data.Command.UpdateRequestHandler`1">
+            <summary>
+                The update request handler.
+            </summary>
+        </member>
+        <member name="M:XCore.Common.Data.Command.UpdateRequestHandler`1.#ctor(XCore.Common.Data.Repository.IRepositoryAsync{`0})">
+            <summary>
+                The update request handler.
+            </summary>
+        </member>
+        <member name="M:XCore.Common.Data.Command.UpdateRequestHandler`1.Handle(XCore.Common.Data.Command.UpdateRequest{`0},System.Threading.CancellationToken)">
+            <summary>
+                Handles the update request.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A Task.</returns>
+        </member>
+    </members>
+</doc>
